@@ -1,0 +1,41 @@
+{
+  "name": "html-starter-kit",
+  "version": "1.0.0",
+  "description": "HTML starter kit",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "start": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valicsek/html-starter-kit.git"
+  },
+  "keywords": [
+    "html",
+    "starter",
+    "kit"
+  ],
+  "author": "Valicsek David",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valicsek/html-starter-kit/issues"
+  },
+  "homepage": "https://github.com/valicsek/html-starter-kit#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.1.0"
+  }
+}
