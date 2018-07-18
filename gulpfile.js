@@ -5,6 +5,7 @@ const uglify = require('gulp-uglify')
 const uglifycss = require('gulp-uglifycss')
 const minifycss = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
+const htmlmin = require('gulp-htmlmin')
 const concat = require('gulp-concat')
 const path = require('path')
 const config = require('./config')
@@ -20,6 +21,8 @@ gulp.task('dev', () => {
   gulp.watch(path.join(__dirname, config.dev.source, '*.html')).on('change', browserSync.reload)
 })
 
+gulp.task('assets', ['styles', 'scripts'])
+
 gulp.task('styles', () => {
   return gulp.src(path.join(__dirname, config.dev.source, '**', `*.${config.dev.style.file_type}`))
     .pipe(concat('all.css'))
@@ -34,4 +37,12 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest(path.join(__dirname, config.build.source, 'assets', 'js')))
 })
 
-gulp.task('build', ['styles', 'scripts'])
+gulp.task('html', () => {
+  return gulp.src(path.join(__dirname, config.dev.source, '**', `*.html`))
+    .pipe(htmlmin({
+      collapseWhitespace: true
+    }))
+    .pipe(gulp.dest(path.join(__dirname, config.build.source)))
+})
+
+gulp.task('build', ['assets', 'html'])
