@@ -1,7 +1,11 @@
 # Introduction
 - HTML Starter Kit for static website develop.
 - Includes 'bootstrap' 4 grid system.
-- Just modules what really need to reach the 100% on [pagespeed](https://developers.google.com/speed/pagespeed/insights/)
+- Just modules what really need to reach the 100% on [pagespeed]
+(https://developers.google.com/speed/pagespeed/insights/)
+
+- Remove unnecessary css settings
+- Minify && uglify css, javascript, html files.
 
 # Install && usage
 Just clone the repository
