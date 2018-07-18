@@ -6,6 +6,7 @@ const uglifycss = require('gulp-uglifycss')
 const minifycss = require('gulp-clean-css')
 const purify = require('gulp-purifycss')
 const imagemin = require('gulp-imagemin')
+const inject = require('gulp-inject')
 const htmlmin = require('gulp-htmlmin')
 const concat = require('gulp-concat')
 const path = require('path')
@@ -26,7 +27,7 @@ gulp.task('assets', ['styles', 'scripts'])
 
 gulp.task('styles', () => {
   return gulp.src(path.join(__dirname, config.dev.source, '**', `*.${config.dev.style.file_type}`))
-    .pipe(concat('all.css'))
+    .pipe(concat('style.css'))
     .pipe(purify([path.join(__dirname, config.dev.source, '**', '*.js'), path.join(__dirname, config.dev.source, '**', '*.html')]))
     .pipe(minifycss())
     .pipe(uglifycss())
@@ -35,7 +36,7 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
   return gulp.src(path.join(__dirname, config.dev.source, '**', `*.js`))
-    .pipe(concat('all.js'))
+    .pipe(concat('style-min.js'))
     .pipe(uglifyes({
       mangle: {
         toplevel: config.build.mangle_top_level
@@ -46,6 +47,9 @@ gulp.task('scripts', () => {
 
 gulp.task('html', () => {
   return gulp.src(path.join(__dirname, config.dev.source, '**', `*.html`))
+    .pipe(inject(gulp.src([path.join(__dirname, config.build.source, '**', `*.js`), path.join(__dirname, config.build.source, '**', `*.css`)], {
+      read: false
+    })))
     .pipe(htmlmin({
       collapseWhitespace: true
     }))

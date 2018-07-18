@@ -6,6 +6,7 @@
 
 - Remove unnecessary css settings
 - Minify && uglify css, javascript, html files.
+- Inject assets files
 
 # Install && usage
 Just clone the repository
