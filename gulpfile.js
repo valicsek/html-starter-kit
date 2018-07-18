@@ -34,7 +34,11 @@ gulp.task('styles', () => {
 gulp.task('scripts', () => {
   return gulp.src(path.join(__dirname, config.dev.source, '**', `*.js`))
     .pipe(concat('all.js'))
-    .pipe(uglifyes())
+    .pipe(uglifyes({
+      mangle: {
+        toplevel: config.build.mangle_top_level
+      }
+    }))
     .pipe(gulp.dest(path.join(__dirname, config.build.source, 'assets', 'js')))
 })
 
