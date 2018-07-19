@@ -3,7 +3,6 @@ const gulp = require('gulp')
 const browserSync = require('browser-sync').create()
 const uglifyes = require('gulp-uglify-es').default
 const minifycss = require('gulp-clean-css')
-const uglifycss = require('gulp-minify-cssnames')
 const purify = require('gulp-purifycss')
 const imagemin = require('gulp-imagemin')
 const inject = require('gulp-inject')
@@ -61,9 +60,19 @@ gulp.task('html-copy', () => {
 
 gulp.task('html-ref-min', () => {
   return gulp.src(path.join(__dirname, config.build.source, '**', '*.html'))
-    .pipe(inject(gulp.src([path.join(__dirname, config.build.source, '**', `*.js`), path.join(__dirname, config.build.source, '**', `*.css`)], {
+    .pipe(inject(gulp.src([
+      path.join(__dirname, config.build.source, '**', `*.js`),
+      path.join(__dirname, config.build.source, '**', `*.css`)
+    ], {
       read: false
     }), {
+      transform: (path, file) => {
+        if (!path.includes('css')) {
+          return `<script src="${path}" async></script>`
+        } else {
+          return `<link rel="stylesheet" href="${path}" media="none" onload="if(media!='all')media='all'">`
+        }
+      },
       addRootSlash: false,
       relative: true
     }))
