@@ -49,7 +49,8 @@ gulp.task('scripts', () => {
 })
 
 gulp.task('resources', () => {
-  return gulp.src(path.join(__dirname, config.dev.source, '**', '*.+(jpg|jpeg|gif|png|svg)'))
+  gulp.src(path.join(__dirname, config.dev.source, '**', '*.+(jpg|jpeg|gif|png|svg)'))
+    .pipe(imagemin())
     .pipe(gulp.dest(path.join(__dirname, config.build.source)))
 })
 
