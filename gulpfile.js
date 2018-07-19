@@ -11,6 +11,7 @@ const htmlmin = require('gulp-htmlmin')
 const concat = require('gulp-concat')
 const path = require('path')
 const config = require('./config')
+const run_sequence = require('run-sequence')
 
 gulp.task('dev', () => {
   gulp.start('build')
@@ -72,4 +73,10 @@ gulp.task('html-ref-min', () => {
     .pipe(gulp.dest(path.join(__dirname, config.build.source)))
 })
 
-gulp.task('build', ['assets', 'html-copy', 'html-ref-min'])
+gulp.task('build', () => {
+  run_sequence(
+    'assets',
+    'html-copy',
+    'html-ref-min'
+  )
+})

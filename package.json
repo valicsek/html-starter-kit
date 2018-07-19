@@ -39,6 +39,7 @@
     "gulp-inject": "^4.3.2",
     "gulp-purifycss": "^0.2.0",
     "gulp-uglify-es": "^1.0.4",
-    "gulp-uglifycss": "^1.1.0"
+    "gulp-uglifycss": "^1.1.0",
+    "run-sequence": "^2.2.1"
   }
 }
