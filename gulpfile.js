@@ -19,7 +19,7 @@ gulp.task('dev', () => {
     }
   })
 
-  gulp.watch(path.join(__dirname, config.dev.source, 'assets', '**', `*.${config.dev.style.file_type}`), browserSync.reload)
+  gulp.watch(path.join(__dirname, config.dev.source, 'assets', '**', `*.*`), browserSync.reload)
   gulp.watch(path.join(__dirname, config.dev.source, '*.html')).on('change', browserSync.reload)
 })
 
