@@ -1,0 +1,36 @@
+
+div[class*="container"]:empty, div[class*="container-fluid"]:empty,
+div[class*="row"]:empty, div[class*="col"]:empty  {
+  background: #e9ebed;
+  height: 10em;
+  border: 0px;
+  margin-bottom: .1em;
+}
+
+*:not(g) {
+  outline: 3px solid gray;
+}
+
+div[class*="container"]:empty:before, div[class*="container-fluid"]:empty:before,
+div[class*="row"]:empty, div[class*="col"]:empty  {
+  color:#bbbbbb;
+  font-weight: bolder;
+  font-size: 36px;
+  display: block;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  text-align: center;
+  line-height: 4.5em; 
+}
+
+div[class*="container"]:empty:before, div[class*="container-fluid"]:empty:before {
+  content: "Container";
+}
+
+div[class*="row"]:empty:before{
+  content: "Row";
+}
+
+div[class*="col"]:empty:before{
+  content: "Column";
+}
