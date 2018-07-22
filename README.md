@@ -22,12 +22,13 @@
 ## CSS
 - ✅ Remove unnecessary css classes/ids.
 - ✅ Minify & concat
+- ✅ Basic "highlighting" for empty rows, columns, containers (bootstrap).
 - 🔜 Uglify classes/ids
 - 🔜 Use SASS,SCSS
 - 🔜 Async with loading page.
 ## JS
 - ✅ Minify & uglify & concat & ES6
-- Async
+- ✅ Async tag
 ## Images
 - ✅ Minify images
 
