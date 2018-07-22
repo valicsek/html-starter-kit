@@ -13,7 +13,9 @@ const config = require('./config')
 const run_sequence = require('run-sequence')
 
 gulp.task('dev', () => {
-  gulp.start('build')
+  run_sequence(
+    'build'
+  )
 
   browserSync.init({
     server: {
