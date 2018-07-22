@@ -18,6 +18,7 @@
 - ✅ Minify HTML
 - ✅ Remove unnecessary comments
 - ✅ Inject assets
+- ✅ Browsersync (auto-reload)
 ## CSS
 - ✅ Remove unnecessary css classes/ids.
 - ✅ Minify & concat
@@ -37,6 +38,12 @@ Just clone the repository 😅
 ```
 git clone https://github.com/valicsek/html-starter-kit
 ```
+
+Install dependencies
+```
+npm install
+```
+
 After that start to dev
 ```
 npm start dev
